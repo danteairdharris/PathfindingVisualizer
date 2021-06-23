@@ -1,0 +1,25 @@
+.visualizer-container {
+    position: fixed;
+    top: 100px;
+    background-color: antiquewhite;
+}
+
+.button-container {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    background: gray;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.button {
+    background-color: #4CAF50; /* Green */
+    border: 2px solid black;
+    color: white;
+    padding: 15px 32px;
+    font-size: 16px;
+    border-radius: 8px;
+    display: table-cell;
+    margin: 5px;
+}
