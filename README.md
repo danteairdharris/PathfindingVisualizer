@@ -1,4 +1,4 @@
-# [Graph Theory Pathfinding Visualizer](https://pathfinding-visualizer.herokuapp.com/)
+# [Graph Theory Pathfinding Visualizer](https://pathfinding-visualizer-app.herokuapp.com/)
 ## Project Overview
 This data tool is a use case demonstration of a text sentiment analysis classifier. The web app displays comments from a list of upcoming movie trailer videos off youtube and performs a sentiment analysis on them with a tensorflow built model with an evaluation of 84% accuracy. The app simultaneously allows for the use of another model, an SKLearn built model with an evaluation of 90% accuracy, to re-classify the pre-evaluated sentiments and compare performance.
 
