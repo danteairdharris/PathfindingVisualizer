@@ -13,5 +13,5 @@ The graph representation is stored in an array as an adjacency list. That is, ea
 * The algorithm takes a node from the adjacency list and looks at its adjacent nodes. Then it adds them to the nodes to be visited while adding the current node to the visited array. Every edge that is traversed is added to the spread array. This algorithm repeats until the target node is found. 
 * The path and spread arrays are returned to generate animations and reveal the calculated shortest path.
 
-![alt text](https://github.com/danteairdharris/PathfindingVisualizer/blob/main/app.png)
-![alt text](https://github.com/danteairdharris/PathfindingVisualizer/blob/main/visualized.png)
+![alt text](https://github.com/danteairdharris/PathfindingVisualizer/blob/main/app_gen.png)
+![alt text](https://github.com/danteairdharris/PathfindingVisualizer/blob/main/app_vis.png)
