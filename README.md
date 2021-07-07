@@ -1,32 +1,15 @@
 # [Graph Theory Pathfinding Visualizer](https://pathfinding-visualizer-app.herokuapp.com/)
 ## Project Overview
-This data tool is a use case demonstration of a text sentiment analysis classifier. The web app displays comments from a list of upcoming movie trailer videos off youtube and performs a sentiment analysis on them with a tensorflow built model with an evaluation of 84% accuracy. The app simultaneously allows for the use of another model, an SKLearn built model with an evaluation of 90% accuracy, to re-classify the pre-evaluated sentiments and compare performance.
+This Web app visualizes a simple alogorithm (Breadth-First Search) as it pertains to shortest path calculation in graph theory. After generating a random graph representation using an adjacency matrix, the app creates and renders the nodes and edges using cytoscape.js. The user can press on the 'BFS' button to calculate the shortest path from the source node to the target node and the app will visualize the process. 
 
 ### How to use the Web App:
-* Paste in a comment from the data frame to compare the tensorflow model's performance against the sklearn model. Or simply paste in a test comment as if you were commenting under a trailer video. The SK model will predict its sentiment and display it.
+* After the graph component mounts, you can either re-mount the component to generate another random graph ('Generate new Random Graph') or you can calculate and visualize the shortest path between the source and target nodes (BFS).
 
-## Data Collection
-I used Selenium to scrape a list of youtube videos' relevant data. With each video, the following data was scraped:
-* Title
-* Views
-* Video Likes
-* Video Dislikes
-* Top 50 Comments
+## Graph Creation and Representation
+The graph representation is stored in an array as an adjacency list. That is, each index represents a node and each node contains the nodes it's connected to. First, there are n nodes created. Each node can only be connected to a node that exists 5 nodes or less away from the current node. This helps keep the graph neat and linear since it's being rendered in 2D. At the same time, when a new node is added, an edgename is created and associated with the pair. As each node and edge is created and added to the adjacency list, a corresponding cytoscape element is being initialized. After n nodes are created, the graph continues to make extra nodes and edges to increase the graphs complexity. Currently, the graph creates a total of n+8 edges. After all the data has been generated, the cytoscape graph is rendered via the graph component.
 
-I also utilized the IMDB reviews dataset for the creation of my classification model. It consists of 25k positive reviews and 25k negative reviews.
+## BFS Algorithm
+The breadthFirst function I created takes the adjacency list graph representaion in and runs a BFS algorithm on it to search for the target node. I used an array to represent the queue structure which held the nodes to be visited and another array which held the previously visited nodes. Additionally, a 'path' array and a 'spread' array are used to hold the final path and the entire list of edges traversed in order respectively. The algorithm takes a node from the adjacency list and looks at its adjacent nodes. Then it adds them to the nodes to be visited while adding the current node to the visited array. Every edge that is traversed is added to the spread array. This algorithm repeats until the target node is found. The path and spread arrays are returned to generate animations and reveal the calculated shortest path.
 
-## Data Cleaning
-Here are some tasks that were tackled in the cleaning process:
-* Parsed title to clean text.
-* Feature engineered comment length and language.
-* (IMDB dataset)Parsed review to remove random html tags.
-
-## Exploratory Data Analysis
-![alt text](https://github.com/danteairdharris/CommentSentimentAnalysis/blob/master/cloud_still.png)
-![alt text](https://github.com/danteairdharris/CommentSentimentAnalysis/blob/master/bar.png)
-
-## Model
-The tensorflow model utilizes a Sequential architecture with 2 each Dense and Dropout hidden layers. SKLearn OneHotEncoder and Google Universal Sentence Encoder are used to encode and embed text respectively. The final model is evaluated at 0.84 accuracy with 0.36 validation loss. The SKLearn model performs better at an evaluated 0.90 accuracy mostly due to its use of Term Frequency x Inverse Document Frequency vectorization which helps to reduce the prevalence of frequent unimportant terms like 'the' and 'movie' in our bag of words representation. The comment sentiments were pre evaluated using the Tensorflow model but the web app gives the user the opportunity to re-classify them (or any text) using the SKLearn model to compare performance.
-
-## Productionization
-Used Streamlit to quickly and cleanly deploy the model for use.
+![alt text](https://github.com/danteairdharris/PathfindingVisualizer/blob/main/app.png)
+![alt text](https://github.com/danteairdharris/PathfindingVisualizer/blob/main/visualized.png)
