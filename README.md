@@ -1,4 +1,4 @@
-# [Graph Theory Pathfinding Visualizer](https://pathfinding-visualizer-app.herokuapp.com/)
+# [Graph Theory Pathfinding Visualizer](https://danteairdharris.github.io/PathfindingVisualizer/)
 ## Project Overview
 This Web app visualizes a simple alogorithm (Breadth-First Search) as it pertains to shortest path calculation in graph theory. After generating a random graph representation using an adjacency matrix, the app creates and renders the nodes and edges using cytoscape.js. The user can press on the 'BFS' button to calculate the shortest path from the source node to the target node and the app will visualize the process. 
 
